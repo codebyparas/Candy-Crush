@@ -9,6 +9,9 @@ let otherTile;
 
 window.onload = function(){
     startGame();
+    window.setInterval(function(){
+        crushCandy();
+    }, 100);
 }
 
 function randomCandy(){
@@ -84,5 +87,41 @@ function dragEnd(){
         let otherImg = otherTile.src;
         currTile.src = otherImg;
         otherTile.src = currImg;
+    }
+}
+
+function crushCandy(){
+    // crushFive()
+    // crushFour()
+    crushThree();
+}
+
+function crushThree(){
+    // Check Rows
+    for(let r = 0; r < rows; r++){
+        for(let c = 0; c < columns-2; c++){
+            let candy1 = board[r][c];
+            let candy2 = board[r][c+1];
+            let candy3 = board[r][c+2];
+            if(candy1.src == candy2.src && candy2.src == candy3.src && !candy1.src.includes("blank")){
+                candy1.src = "./Images/blank.png";
+                candy2.src = "./Images/blank.png";
+                candy3.src = "./Images/blank.png";
+            }
+        }
+    }
+
+    // Check Columns
+    for(let c = 0; c < columns; c++){
+        for(let r = 0; r < rows-2; r++){
+            let candy1 = board[r][c];
+            let candy2 = board[r+1][c];
+            let candy3 = board[r+2][c];
+            if(candy1.src == candy2.src && candy2.src == candy3.src && !candy1.src.includes("blank")){
+                candy1.src = "./Images/blank.png";
+                candy2.src = "./Images/blank.png";
+                candy3.src = "./Images/blank.png";
+            }
+        }
     }
 }
