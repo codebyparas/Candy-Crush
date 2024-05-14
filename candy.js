@@ -110,6 +110,7 @@ function crushCandy(){
     // crushFive()
     // crushFour()
     crushThree();
+    document.getElementById("score").innerText = score;
 }
 
 function crushThree(){
@@ -123,6 +124,7 @@ function crushThree(){
                 candy1.src = "./Images/blank.png";
                 candy2.src = "./Images/blank.png";
                 candy3.src = "./Images/blank.png";
+                score += 30;
             }
         }
     }
@@ -137,6 +139,7 @@ function crushThree(){
                 candy1.src = "./Images/blank.png";
                 candy2.src = "./Images/blank.png";
                 candy3.src = "./Images/blank.png";
+                score += 30;
             }
         }
     }
